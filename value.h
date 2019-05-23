@@ -1,0 +1,7 @@
+
+      REAL*8         RHO,EPS,EPSP,EPSPP,EPSPPP,
+     1               CR,SR,CSE,SNE,CRE,SRE,CORO
+
+
+      COMMON /VALUES/ RHO,EPS,EPSP,EPSPP,EPSPPP,
+     1               CR,SR,CSE,SNE,CRE,SRE,CORO
