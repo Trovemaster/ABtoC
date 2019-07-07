@@ -206,11 +206,13 @@ C**************************************************************************C
       id = 0
       StatesUnit = 21
       OPEN(UNIT=StatesUnit,
-     c     FILE=DirInput(1:NumDirLetters)//"tmp.states")
+     c     FILE=DirInput(1:NumDirLetters)//
+     c     FileOutput(1:NumFileLetters)//".states")
 
       TransUnit = 22
       OPEN(UNIT=TransUnit,
-     c     FILE=DirInput(1:NumDirLetters)//"tmp.trans")
+     c     FILE=DirInput(1:NumDirLetters)//
+     c     FileOutput(1:NumFileLetters)//".trans")
 
      
 C**************************************************************************C
@@ -1267,36 +1269,47 @@ C      READ(94,501) JX2VAL
 C      READ(94,502) TOTSYM
 C      READ(94,503) EnergyAB
 
-      SELECT CASE (TOTSYM)
-      case ('A1')
-         IndSym = 1
-         tau=0
-         FLAG=0
-      case ('A2')
-         IndSym = 2
-         tau=1
-         FLAG=1
-      case ('B1')
-         IndSym = 4
-         tau=1
-         FLAG=0
-      case ('B2')
-         IndSym = 3
-         tau=0
-         FLAG=1
-      case ('A''')
-         IndSym = 1
-         tau=0
-         FLAG=0
-      case ('A"')
-         IndSym = 2
-         tau=1
-         FLAG=0
-      case default
-        write(6,'("Illegal TOTSYM")')
-        stop 'illegal TOTSYM'
-      end select
-
+      if (SYMM) then 
+        SELECT CASE (TOTSYM)
+        case ('A1')
+           IndSym = 1
+           tau=0
+           FLAG=0
+        case ('A2')
+           IndSym = 2
+           tau=1
+           FLAG=1
+        case ('B1')
+           IndSym = 4
+           tau=1
+           FLAG=0
+        case ('B2')
+           IndSym = 3
+           tau=0
+           FLAG=1
+        case default
+          write(6,'("Illegal TOTSYM")')
+          stop 'illegal TOTSYM'
+        end select
+        !
+      else
+        !
+        SELECT CASE (TOTSYM)
+        !
+        case ('A''','A1')
+           IndSym = 1
+           tau=0
+           FLAG=0
+        case ('A"','B1')
+           IndSym = 2
+           tau=1
+           FLAG=0
+        case default
+          write(6,'("Illegal TOTSYM")')
+          stop 'illegal TOTSYM'
+        end select
+        !
+      endif
       G_ns=DFloat(Gns(IndSym))
       if ( .NOT.SYMM ) G_ns= 1.0D+00
 

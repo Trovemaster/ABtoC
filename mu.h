@@ -32,11 +32,9 @@
      1        NotateStretch,gns
 
       CHARACTER*2 GammaLevel(4)
-      DATA GammaLevel/'A1','A2','B2','B1'/
 
         LOGICAL FlagCheck 
         PARAMETER(FlagCheck = .FALSE.)
-
 
       CHARACTER*20 FileStretchAB,
      1            FileStretchC,FileGamma,FileBendAB,

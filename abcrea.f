@@ -26,7 +26,7 @@ C
       REAL*8 VCPRM
 C      INTEGER IDPMA
 C      INTEGER IDPTR
-      CHARACTER*80 FILNAM,FileOutput
+      CHARACTER*80 FILNAM
       INTEGER I1,I2
 
       REAL*8 DIPACP(53),
@@ -39,7 +39,7 @@ c ---- Quantum number parameters for stretching wave functions -----
       COMMON /DIPAC/ DIPACP,DIPACQ
       COMMON /DIPBC/ DIPBCX 
 
-      INTEGER ZC1,ZC2,ZC3,ZELEC,I0,NSTINT,NumFileLetters
+      INTEGER ZC1,ZC2,ZC3,ZELEC,I0,NSTINT
       COMMON /CHARGE/ EC,ZC1,ZC2,ZC3,ZELEC
 
 
@@ -122,7 +122,8 @@ C---  READ DATA ---
       NumFileLetters = I0-1
 
 
-      FILNAM=DirInput(1:NumDirLetters)//FileOutput(1:NumFileLetters)
+      FILNAM=DirInput(1:NumDirLetters)//FileOutput(1:NumFileLetters)//
+     c  ".out"
       OPEN(UNIT=OutUnit,FILE=FILNAM,status='REPLACE')
 
       FILNAM=DirInput(1:NumDirLetters)//FileTMP
@@ -288,10 +289,13 @@ C---  SKIP 1 LINE
       READ (InpUnit,*) Te_A
 
       gns = 0
+      !      
       IF (SYMM) THEN
         READ (InpUnit,*) gns(1:4)
+        GammaLevel = (/'A1','A2','B2','B1'/) 
       ELSE
         READ (InpUnit,*) gns(1:2)
+        GammaLevel = (/'A''','A"','XX','XX'/) 
       ENDIF
 
 

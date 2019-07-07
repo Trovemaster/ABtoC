@@ -17,7 +17,8 @@ c -----  Morse parameter Kappa  = sqrt(2*m*D)/a/hbar (see Spirko, JMS, 112, 183(
      7        MinJAB,MaxJAB,
      8        MinJC,MaxJC,
      7        MinKAB,MaxKAB,MinKC,
-     8        MaxKC,CalcOrRead,MaxNvibMax,OUT_COEFF
+     8        MaxKC,CalcOrRead,MaxNvibMax,OUT_COEFF,
+     9        NumFileLetters
 
 
       INTEGER KMAXAB,KMAXC,NV2MaxAB,NV2MaxC,
@@ -36,7 +37,8 @@ c -----  Morse parameter Kappa  = sqrt(2*m*D)/a/hbar (see Spirko, JMS, 112, 183(
      7        MinJAB,MaxJAB,
      8        MinJC,MaxJC,
      7        MinKAB,MaxKAB,MinKC,
-     8        MaxKC,CalcOrRead,MaxNvibMax,NV2Max,OUT_COEFF
+     8        MaxKC,CalcOrRead,MaxNvibMax,NV2Max,OUT_COEFF,
+     9        NumFileLetters
 
       COMMON /REALDIP/ KAPPA,RMin,RMax,RhoMaximum,
      1        AbsTemper,TempCO,IntensLimit,
@@ -44,6 +46,7 @@ c -----  Morse parameter Kappa  = sqrt(2*m*D)/a/hbar (see Spirko, JMS, 112, 183(
      2        EnerMaxAB,EnerMaxC,NuMin,Numax,NumDirLetters
 
 
-      CHARACTER*80 DirInput    
-      COMMON /STRING/ DirInput 
+      CHARACTER*80 DirInput,FileOutput
+      COMMON /STRING/ DirInput,FileOutput
+
     
