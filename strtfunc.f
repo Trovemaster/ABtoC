@@ -39,7 +39,7 @@ C --------------------- START OF THE SUBROUTINE ---------------------C
 3001  FORMAT(1H0,' ABTOC.INT.INF   STRETCHING MATRIX ELEMENTS '/)
 
 
-C----      READ EIGEVECTORS COEFITIENTS OF THE STRETCHING SYMMETR. WAVE FUNCTIONS
+C----      READ EIGENVECTORS COEFITIENTS OF THE STRETCHING SYMMETR. WAVE FUNCTIONS
 c      IF (SYMM) THEN
          CALL ReadStretchFunction(StretchFunc)
 c      ENDIF
@@ -53,7 +53,7 @@ C-----     UNVibETRIZED MORSE  FUNCTIONS                      ------
 
 C----      CALCULATE MATRIX ELEMENTS OF THE Y_1^i*Y_3^j ON THE SYMMETR. 
 C----      WAVE FUNCTIONS  <N,Gamma| Y_1^i*Y_3^j |N`,Gamma`>
-C----      !!!! RIGHT SIDE FUNCTION IS "C" ELECTR. STATE !!!!
+C----      !!!! RIGHT HAND SIDE FUNCTION IS "C" ELECTR. STATE !!!!
       CALL Calc_SymmMorseMatrElements(StretchFunc,
      1                                PrimMorseMatrElements)
 
@@ -284,7 +284,7 @@ C DATE        : 05.06.2000
 C AUTHOR      : Yurchenko
 C UPDATES     :
 C LANGUAGE    : FORTRAN
-C PURPOSE     : READ EIGEVECTORS COEFITIENTS OF THE STRETCHING SYMMETR.
+C PURPOSE     : READ EIGENVECTORS COEFITIENTS OF THE STRETCHING SYMMETR.
 C             : WAVE FUNCTIONS NEEDED TOCALCULATE THE MATRIX ELEMENTS OF THE DIPOLE MOMENT 
 C             : OF THE TRIATOMIC MOLECULE USING THE MORBID SCHEME.
 C SUBPROGRAMS :
@@ -610,7 +610,7 @@ C
 C     ORDER OF INDEXES SHOULD BE 01 - 10 - 02 - 11 - 20 - 03 - 12 - 21 - 30 ANS SO ON
 
       iL = 0
-       ElementTemp = 0 
+      ElementTemp = 0 
       DO NL = 0,NV1V3Max(ISurfL) ! --- N = 0..(V1+V3)_max Left 
       DO VL1= 0,NL               ! --- V1Left
          VL3 = NL-VL1            ! --- V3Left
@@ -633,7 +633,7 @@ C     ORDER OF INDEXES SHOULD BE 01 - 10 - 02 - 11 - 20 - 03 - 12 - 21 - 30 ANS 
       ENDDO                ! --- N = 0..(V1+V3)_max Right
       ENDDO                ! --- V1Left
       ENDDO                ! --- N = 0..(V1+V3)_max Left 
-         StretchMatrixElements
+      StretchMatrixElements
      1            (i0,ISurfL,GammaVibL,GammaVibR,NVibL,NVibR) = 
      1            ElementTemp
          continue  

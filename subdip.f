@@ -149,17 +149,24 @@ C
 C
 C     PARR-Komponente 
 C
+C     Sergey: we need to swap sinrho between q and p 
 
       CORO=1.0D+00-COS(RHO)
-      CALL TRNSDP ( DIPACP , AUXILI )
-      CALL PLMLT2 ( SBARR , AUXILI , DMPARR )
+      ! original version used for CH2
+      !CALL TRNSDP ( DIPACP , AUXILI )
+      !CALL PLMLT2 ( SBARR , AUXILI , DMPARR )
+      !
+      CALL TRNSDP ( DIPACP , DMPARR )
 
 C
 C     PERP-Komponente 
 C
 
       CORO=1.0D+00-COS(RHO)
-      CALL TRNSDP ( DIPACQ , DMPERP )
+      ! original version used for CH2
+      !CALL TRNSDP ( DIPACQ , DMPERP )
+      CALL TRNSDP ( DIPACQ , AUXILI )
+      CALL PLMLT2 ( SBARR , AUXILI , DMPERP )
 
 C
 C     x-Komponente zwischen den beiden Funktionen     

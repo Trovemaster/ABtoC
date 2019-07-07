@@ -26,11 +26,10 @@
 
       INTEGER NotateStretch(3,2,UpperNvib)  
 
-      COMMON /IntMu/ InpUnit,OutUnit,TMPUnit,
-     1        NotateStretch
+      INTEGER :: Gns(4) ! = (/1,1,3,3/)
 
-      INTEGER Gns(4)
-      DATA Gns /1,1,3,3/
+      COMMON /IntMu/ InpUnit,OutUnit,TMPUnit,
+     1        NotateStretch,gns
 
       CHARACTER*2 GammaLevel(4)
       DATA GammaLevel/'A1','A2','B2','B1'/

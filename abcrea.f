@@ -287,6 +287,14 @@ C---  SKIP 1 LINE
       READ (InpUnit,*) Te_C
       READ (InpUnit,*) Te_A
 
+      gns = 0
+      IF (SYMM) THEN
+        READ (InpUnit,*) gns(1:4)
+      ELSE
+        READ (InpUnit,*) gns(1:2)
+      ENDIF
+
+
 C---  SKIP 3 LINES
       DO I0=1,3
          READ (InpUnit,5000) LABEL 
@@ -642,7 +650,7 @@ c----------------------------c
 c---------  STOP ------------c
 92       CLOSE(92) 
               WRITE(*,*) 'ERROR: INPUT PARAMETERS FROM FILE', 
-     1   FilNam,'DO NOT CORRESPOND TO PARAMETERS FROM INPUT FILE'
+     1   FilNam,'DO NOT AGREE WITH PARAMETERS FROM THE INPUT FILE'
          WRITE (*,*) VAL1,VAL2,NUM1,NUM2
 c          PAUSE '-- PRESS ANY KEY --'
           STOP

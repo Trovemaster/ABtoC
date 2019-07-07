@@ -19,7 +19,7 @@ C      CALLED :
 C             :
 C###########################################################################
 
-      SUBROUTINE Calc_RotateMatrElement(ThreeJsymbol,SexJsymbol)
+      SUBROUTINE Calc_RotateMatrElement(ThreeJsymbol,SixJsymbol)
 
       include 'dipolsys.h'
       include 'molcul.h'
@@ -29,7 +29,7 @@ C###########################################################################
       INTEGER DeltaJ,DeltaN,DeltaK
 
       REAL*8 ThreeJsymbol(KMAXAB+1,3,KMAXAB+1,3),
-     1       SexJsymbol(KMAXAB+1,KMAXAB+1,3,3),
+     1       SixJsymbol(KMAXAB+1,KMAXAB+1,3,3),
      1       THREEJ,SIXJ
 C
       REAL*8 F_kk,ProdN1N2,Spin,J_1,J_2
@@ -63,12 +63,12 @@ C ================ START SUBROUTINE =====================C
             ProdN1N2 = DSQRT( (2.0D+00*DFLOAT(N1)+1.0D+00)*
      1                        (2.0D+00*DFLOAT(N2)+1.0D+00) )
 
-            SexJsymbol(J2+1,N2+1,DeltaN+2,DeltaJ+2) = ProdN1N2 *
+            SixJsymbol(J2+1,N2+1,DeltaN+2,DeltaJ+2) = ProdN1N2 *
      1                            SIXJ(J_2, DFLOAT(N2) , Spin ,
      1                                 DFLOAT(N1) , J_1, 1.0D+00)
 
           ELSE
-            SexJsymbol(J2+1,N2+1,DeltaN+2,DeltaJ+2) = 0.0
+            SixJsymbol(J2+1,N2+1,DeltaN+2,DeltaJ+2) = 0.0
           ENDIF 
 
 
