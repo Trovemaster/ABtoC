@@ -29,7 +29,7 @@
       INTEGER :: Gns(4) ! = (/1,1,3,3/)
 
       COMMON /IntMu/ InpUnit,OutUnit,TMPUnit,
-     1        NotateStretch,gns
+     1        NotateStretch,gns,GammaLevel
 
       CHARACTER*2 GammaLevel(4)
 

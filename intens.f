@@ -252,7 +252,7 @@ C                                                                          C
      1    id,EnergyC(LevelC)+Te_C,Gns(IndSym_f)*(J2_f+1)*int(XMULTI),
      1    J_f,N_f,K_f,KC_f,
      3    GammaLevel(IndSym_f),
-     3    V1_f,V2_f,V3_f,V2Lin_f,NVib_f,GammaLevel(Gamma_f*2-1),1
+     3    V1_f,V2_f,V3_f,V2Lin_f,NVib_f,GammaLevel(Gamma_f*2-1),3
 
 
       ENDDO
@@ -301,12 +301,12 @@ C                                                                          C
           id_AB(LevelAB) = id
       
           id = id + 1
-          J_f = 0.5D+00*DFLOAT(J2_f)
+          J_i = 0.5D+00*DFLOAT(J2_i)
           
           WRITE (StatesUnit,1022)
      1    id,EnergyAB((LevelAB))+Te_A+ZeroEnergyA-ZeroEnergyC,
      1    Gns(IndSym_i)*(J2_i+1),
-     1    J2_i,N_i,K_i,KC_i,
+     1    J_i,N_i,K_i,KC_i,
      3    GammaLevel(IndSym_i),
      4    V1_i,V2_i,V3_i,V2Lin_i,NVib_i,GammaLevel(Gamma_i*2-1),Eta_i
       
